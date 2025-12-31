@@ -625,7 +625,12 @@ void JosephVeinsApp::treatAttackFlags()
             traciVehicle->setColor(TraCIColor(0, 0, 0, 255));
         }
         else {
-            traciVehicle->setColor(TraCIColor(255, 0, 0, 255));
+            if (myAttackType == attackTypes::Attacks::Target) {
+                traciVehicle->setColor(TraCIColor(255, 0, 255, 255));
+            }
+            else {
+                traciVehicle->setColor(TraCIColor(255, 0, 0, 255));
+            }
         }
     }
     else {
