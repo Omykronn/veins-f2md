@@ -626,12 +626,15 @@ void JosephVeinsApp::treatAttackFlags()
         }
         else {
             if (myAttackType == attackTypes::Attacks::Target) {
-                traciVehicle->setColor(TraCIColor(255, 0, 255, 255));
+                traciVehicle->setColor(TraCIColor(0, 255, 255, 255));
             }
             else {
                 traciVehicle->setColor(TraCIColor(255, 0, 0, 255));
             }
         }
+    }
+    else if (myMdType == mbTypes::GlobalAttacker) {
+        traciVehicle->setColor(TraCIColor(255, 0, 255, 255));
     }
     else {
         if (isTargetNode(myPseudonym)) {
