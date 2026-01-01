@@ -24,6 +24,8 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
 
     switch (myAttackType) {
     case attackTypes::MAStress: {
+        std::cout << "\nMy Pseudonym : " << *myPseudonym << '\n';
+
         reportBase.setGenerationTime(simTime().dbl());
         reportBase.setSenderPseudo(*myPseudonym);
         reportBase.setReportedPseudo(reportedBsm->getSenderPseudonym());
