@@ -615,7 +615,7 @@ void JosephVeinsApp::onBSM(BasicSafetyMessage* bsm)
 void JosephVeinsApp::treatAttackFlags()
 {
 
-    if (myMdType == mbTypes::LocalAttacker) {
+    if (myMdType == mbTypes::LocalAttacker || myMdType == mbTypes::GlobalAttacker) {
         attackBsm = mdAttack.launchAttack(myAttackType, &linkControl);
 
         if (mdAttack.getTargetNode() >= 0) {
