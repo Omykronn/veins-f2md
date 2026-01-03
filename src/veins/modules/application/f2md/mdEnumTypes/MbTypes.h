@@ -20,12 +20,13 @@ enum Mbs {
     Genuine = 0,
     LocalAttacker,
     GlobalAttacker,
+    Target,
     SIZE_OF_ENUM
 };
 
-static const char* mbNames[] = { "Genuine", "LocalAttacker","GlobalAttacker"};
+static const char* mbNames[] = { "Genuine", "LocalAttacker","GlobalAttacker", "Target" };
 
-static const Mbs intMbs[] = { Genuine, LocalAttacker,GlobalAttacker };
+static const Mbs intMbs[] = { Genuine, LocalAttacker,GlobalAttacker,Target };
 
 static_assert(sizeof(mbTypes::mbNames)/sizeof(char*) == mbTypes::SIZE_OF_ENUM
         , "sizes dont match");
