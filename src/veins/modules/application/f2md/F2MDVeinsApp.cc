@@ -528,6 +528,7 @@ void JosephVeinsApp::setMDApp(mdAppTypes::App appTypeV1,
 }
 
 static double totalGenuine = 0;
+static double totalTarget = 0;
 static double totalLocalAttacker = 0;
 static double totalGlobalAttacker = 0;
 mbTypes::Mbs JosephVeinsApp::induceMisbehavior(double localAttacker,
@@ -538,21 +539,26 @@ mbTypes::Mbs JosephVeinsApp::induceMisbehavior(double localAttacker,
         return mbTypes::Genuine;
     }
 
-    if ((totalLocalAttacker + totalGenuine) == 0) {
+    if ((totalLocalAttacker + totalGenuine + totalTarget) == 0) {
         totalGenuine++;
         return mbTypes::Genuine;
     }
 
-    double realFactor = totalLocalAttacker / (totalGenuine + totalLocalAttacker);
+    double realFactor = totalLocalAttacker / (totalGenuine + totalTarget + totalLocalAttacker);
     if (localAttacker > realFactor) {
         totalLocalAttacker++;
         return mbTypes::LocalAttacker;
     }
     else {
-        double realGFactor = totalGlobalAttacker / (totalGenuine + totalGlobalAttacker);
+        double realGFactor = totalGlobalAttacker / (totalGenuine + totalTarget + totalGlobalAttacker);
+        double realTFactor = totalTarget / (totalGenuine + totalTarget + totalGlobalAttacker);
         if (globalAttacker > realGFactor) {
             totalGlobalAttacker++;
             return mbTypes::GlobalAttacker;
+        }
+        else if (0.05 > realTFactor) { // TODO: Use new variable from config file
+            totalTarget++;
+            return mbTypes::Target;
         }
         else {
             totalGenuine++;
