@@ -38,10 +38,6 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
         break;
     }
 
-    if (reportedBsm->getSenderMbType() == mbTypes::Target) {
-        std::cout << '\n' << reportedBsm->getSenderPseudonym() << " is a Target\n";
-    }
-
     return reportBase;
 }
 
