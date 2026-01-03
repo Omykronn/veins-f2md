@@ -638,6 +638,9 @@ void JosephVeinsApp::treatAttackFlags()
         if (isTargetNode(myPseudonym)) {
             traciVehicle->setColor(TraCIColor(255, 255, 0, 255));
         }
+        else if (myMdType == mbTypes::Target) {
+            traciVehicle->setColor(TraCIColor(0, 255, 255, 255));
+        }
         else {
             traciVehicle->setColor(TraCIColor(0, 255, 0, 255));
         }
