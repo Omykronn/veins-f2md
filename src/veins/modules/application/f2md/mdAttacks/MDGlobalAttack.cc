@@ -39,12 +39,11 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
         break;
 
     case attackTypes::CoordinatedReport: {
-        if (targetPseudo == 0) {
-            if (reportedBsm->getSenderMbType() == 0) {
-                targetPseudo = reportedBsm->getSenderPseudonym();
-            }
+        if (targetPseudo == 0 && reportedBsm->getSenderMbType() == 0) {
+            targetPseudo = reportedBsm->getSenderPseudonym();
         }
-        else {
+
+        if (reportedBsm->getSenderPseudonym() == targetPseudo) {
             std::cout << *myPseudonym << " reports " << targetPseudo << '\n';
         }
     }
