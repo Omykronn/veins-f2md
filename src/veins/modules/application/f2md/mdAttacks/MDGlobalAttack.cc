@@ -36,6 +36,11 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
         reportBase.setReportedGps(reportedBsm->getSenderGpsCoordinates());
     }
         break;
+
+    case attackTypes::CoordinatedReport: {
+        std::cout << myPseudonym << " reports " << detectedNodes.getNodePseudo(0) << '\n';
+    }
+        break;
     }
 
     return reportBase;
