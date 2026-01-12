@@ -40,10 +40,16 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
 
     case attackTypes::CoordinatedReport: {
         if (targetPseudo == 0) {
-            targetPseudo = detectedNodes->getNodePseudo(0);
-        }
+            unsigned int newTargetPseudo = detectedNodes->getNodePseudo(0);
+            int newTargetType = detectedNodes->getNodeHistoryAddr(newTargetPseudo)->getLatestBSMAddr()->getSenderMbType();
 
-        std::cout << *myPseudonym << " reports " << targetPseudo << '\n';
+            if (newTargetType == 0) {
+                targetPseudo = newTargetPseudo;
+            }
+        }
+        else {
+            std::cout << *myPseudonym << " reports " << targetPseudo << '\n';
+        }
     }
         break;
     }
