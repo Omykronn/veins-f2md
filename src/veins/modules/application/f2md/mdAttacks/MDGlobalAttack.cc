@@ -49,10 +49,9 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
             reportBase.setGenerationTime(simTime().dbl());
             reportBase.setSenderPseudo(*myPseudonym);
             reportBase.setReportedPseudo(targetPseudo);
-
-            // Made-up informations (we are targetting a genuine vehicle)
-            reportBase.setMbType("Genuine");
-            reportBase.setAttackType("ConstPosOffset");
+            reportBase.setMbType(mbTypes::mbNames[reportedBsm->getSenderMbType()]);
+            reportBase.setAttackType(
+                attackTypes::AttackNames[reportedBsm->getSenderAttackType()]);
 
             std::pair<double, double> currLonLat = traci->getLonLat(*curPosition);
             reportBase.setSenderGps(Coord(currLonLat.first, currLonLat.second));
