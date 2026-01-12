@@ -40,7 +40,7 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
 
     case attackTypes::CoordinatedReport: {
         if (targetPseudo == 0) {
-            targetPseudo = detectedNodes->getNodePseudo(0)
+            targetPseudo = detectedNodes->getNodePseudo(0);
         }
 
         std::cout << *myPseudonym << " reports " << targetPseudo << '\n';
