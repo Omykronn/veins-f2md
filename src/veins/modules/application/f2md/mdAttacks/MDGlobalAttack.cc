@@ -40,11 +40,8 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
 
     case attackTypes::CoordinatedReport: {
         if (targetPseudo == 0) {
-            unsigned int newTargetPseudo = detectedNodes->getNodePseudo(0);
-            int newTargetType = detectedNodes->getNodeHistoryAddr(newTargetPseudo)->getLatestBSMAddr()->getSenderMbType();
-
-            if (newTargetType == 0) {
-                targetPseudo = newTargetPseudo;
+            if (reportedBsm->getSenderMbType() == 0) {
+                targetPseudo = reportedBsm->getSenderPseudonym();
             }
         }
         else {
