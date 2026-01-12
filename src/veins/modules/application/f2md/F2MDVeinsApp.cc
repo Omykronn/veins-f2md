@@ -368,6 +368,7 @@ void JosephVeinsApp::initialize(int stage)
             mdGlobalAttack.setCurAccel(&curAccel);
             mdGlobalAttack.setCurAccelConfidence(&curAccelConfidence);
             mdGlobalAttack.setTraci(traci);
+            mdGlobalAttack.setDetectedNodes(&detectedNodes);
 
             mdGlobalAttack.init(myAttackType);
 
