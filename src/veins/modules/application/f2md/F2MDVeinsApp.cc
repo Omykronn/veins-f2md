@@ -640,6 +640,10 @@ void JosephVeinsApp::treatAttackFlags()
         }
     }
 
+    if (myPseudonym == detectedNodes.getNodePseudo(0)) {
+        traciVehicle->setColor(TraCIColor(0, 255, 255, 255));
+    }
+
     if ((simTime().dbl() - targetClearTime) > params.MAX_TARGET_TIME) {
         targetClearTime = simTime().dbl();
         clearTargetNodes();
