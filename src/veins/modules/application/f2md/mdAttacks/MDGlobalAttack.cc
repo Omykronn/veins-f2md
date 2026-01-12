@@ -18,6 +18,7 @@ void MDGlobalAttack::init(attackTypes::Attacks myAttackType) {
 
 }
 
+static unsigned int targetPseudo = 0;
 MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSafetyMessage* reportedBsm) {
 
     MDReport reportBase = MDReport();
@@ -38,7 +39,11 @@ MDReport MDGlobalAttack::launchAttack(attackTypes::Attacks myAttackType, BasicSa
         break;
 
     case attackTypes::CoordinatedReport: {
-        std::cout << *myPseudonym << " reports " << detectedNodes->getNodePseudo(0) << '\n';
+        if (targetPseudo == 0) {
+            targetPseudo = detectedNodes->getNodePseudo(0)
+        }
+
+        std::cout << *myPseudonym << " reports " << targetPseudo << '\n';
     }
         break;
     }
