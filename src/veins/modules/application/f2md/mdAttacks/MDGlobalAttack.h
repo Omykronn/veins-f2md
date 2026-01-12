@@ -25,6 +25,8 @@ protected:
     unsigned long* myPseudonym;
     TraCICommandInterface* traci;
 
+    NodeTable* detectedNodes;
+
     veins::Coord* curPosition;
     veins::Coord* curPositionConfidence;
     veins::Coord* curSpeed;
@@ -55,6 +57,7 @@ public:
     void setCurSpeedConfidence(veins::Coord* curSpeedConfidence);
     void setCurAccel(veins::Coord* curAccel);
     void setCurAccelConfidence(veins::Coord* curAccelConfidence);
+    void setDetectedNodes(NodeTable* detectedNodes);
 };
 
 #endif
