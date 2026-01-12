@@ -94,7 +94,3 @@ void MDGlobalAttack::setCurAccel(Coord* curAccel) {
 void MDGlobalAttack::setCurAccelConfidence(Coord* curAccelConfidence) {
     this->curAccelConfidence = curAccelConfidence;
 }
-
-void MDGlobalAttack::setDetectedNodes(NodeTable* detectedNodes) {
-    this->detectedNodes = detectedNodes;
-}
