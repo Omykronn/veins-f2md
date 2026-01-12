@@ -24,7 +24,7 @@ void ProtocolReport::addBsmToList(BasicSafetyMessage bsm, BsmCheck check) {
     if(bsmListNum<MAX_EVI_BSM_PROTO){
         if (bsm.getSenderPseudonym() == 0) {
             std: cout << "addBsmToList Error Found \n";
-            exit(0);
+            // exit(0);
         }
         this->bsmList[bsmListNum] = bsm;
         this->checksList[bsmListNum] = check;
